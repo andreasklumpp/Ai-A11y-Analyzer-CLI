@@ -18,18 +18,18 @@ services/              # Core services (analyze, dependencies, file reading)
 ## Installation
 1. Clone the repository:
    ```sh
-git clone https://github.com/yourusername/ai-a11y-analyzer.git
-cd ai-a11y-analyzer
-```
+   git clone https://github.com/yourusername/ai-a11y-analyzer.git
+   cd ai-a11y-analyzer
+   ```
 2. (Optional) Create and activate a virtual environment:
    ```sh
-python3 -m venv venv
-source venv/bin/activate
-```
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
 3. Install dependencies:
    ```sh
-uv sync
-```
+   uv sync
+   ```
 
 
 ## Usage
