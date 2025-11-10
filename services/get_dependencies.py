@@ -1,8 +1,12 @@
-def get_dependencies(file_content: str) -> list:
-    """Extracts and returns a list of dependencies from the given file content."""
-    dependencies = []
-    for line in file_content.splitlines():
-        line = line.strip()
-        if line.startswith("import ") or line.startswith("from "):
-            dependencies.append(line)
-    return dependencies
+from custom_agents.deps_agent import DepsAgent
+
+
+async def get_deps(content: str, file_path: str) -> list[str]:
+    """Extracts and returns a list of dependencies from the given content."""
+
+    print("Starting dependency extraction...")
+    print("This may take a few moments.")
+    agent = DepsAgent()
+    result = await agent.run(content, file_path)
+
+    return result

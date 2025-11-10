@@ -1,5 +1,6 @@
 import asyncio
 from services.analyze_a11y import analyze_a11y
+from services.get_dependencies import get_deps
 from services.read_file import read_file
 import typer
 from rich.console import Console
@@ -16,6 +17,11 @@ async def _analyze_a11y(path: str):
     print("Analyzing accessibility for: ", path,)
 
     file_content = read_file(path)
+
+    deps = await get_deps(file_content, path)
+    print(f"Found {len(deps)} dependencies.")
+    for dep in deps:
+        print(f"- {dep}")
     
     accessibility_report = await analyze_a11y(file_content)
     print("Accessibility Analysis Report:")
